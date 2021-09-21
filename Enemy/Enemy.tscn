@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/enemy.png" type="Texture" id=2]
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PoolVector2Array( 5.56583, -14.5373, 11.6577, -27.1185, 23.047, -24.7347, 26.8875, -13.8752, 18.8091, -5.79676, 14.5713, -5.79676, 14.0415, 5.19516, 23.3118, 7.04922, 26.3578, 16.7168, 22.3848, 24.2655, 12.9821, 25.9871, 7.94962, 20.2925, 6.49286, 12.2141, 0.400948, 13.9357, -4.6315, 13.2736, -6.35313, 19.8952, -12.7099, 25.5898, -22.3775, 24.2655, -24.8937, 18.7033, -25.5559, 10.4925, -19.8613, 5.98976, -13.9018, 6.78436, -14.6964, -1.42648, -11.3856, -6.45893, -18.8018, -6.85623, -25.0262, -11.0941, -25.1586, -22.086, -16.8153, -26.7212, -9.26665, -23.9401, -7.28016, -18.5103, -5.95583, -12.9481, -0.658516, -15.3319 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
